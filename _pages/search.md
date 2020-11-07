@@ -1,7 +1,7 @@
 ---
-layout: posts
+layout: search
 title: Posts
-permalink: /posts/
+permalink: /search/
 header:
   overlay_image: /assets/images/top-img.jpg
 ---
