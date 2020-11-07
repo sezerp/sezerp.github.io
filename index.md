@@ -17,6 +17,10 @@ gallery:
     image_path: /assets/images/ai-img.jpg
     alt: "Artificail Intelligence and Data Mining"
     title: "Artifical Intelligence and Data Mining"
+  - url: /projects-category/
+    image_path: /assets/images/projects-img.jpg
+    alt: "Projects"
+    title: "Projects"
 ---
 
 
