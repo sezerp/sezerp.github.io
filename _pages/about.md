@@ -17,22 +17,22 @@ Thinking, sounds enough
 Makes me going forwards  
 
 Step by step  
-Dearming about fly  
-Don't tell me it's to far  
+Dreaming about fly  
+Don't tell me it's too far  
 If you don't, leave my mind  
 
 I am not afraid to stay alone  
-Only with somone  
-Pleas understan this simple think  
-Although don't believe to it  
+Only with someone  
+Please understand this simple think  
+Although don't believe in it  
 
 I would trust but how  
 Everywhere unknowns  
-The race between brain and thouths  
+The race between brain and thoughts  
 Constantly converge and blow  
 
-Pleas change my mind, if you can  
-Show me what is somewere else  
+Please change my mind, if you can  
+Show me what is somewhere else  
 Because it's nothing above  
 It's just a couple of words  
 The only thing what is real it's sounds between us  
