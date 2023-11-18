@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: default
 title:  "Welcome to math!"
 date:   2020-11-07 22:22:22 +0100
 categories: math
