@@ -9,3 +9,6 @@ Paweł Zabczyński:
     - label: "LinkedIn"
       icon: "fab fa-linkedin"
       url: "https://www.linkedin.com/in/pawe%C5%82-zabczy%C5%84ski/"
+    - label: "GitHub"
+      icon: "fab fa-github-square"
+      url: "https://github.com/sezerp"
