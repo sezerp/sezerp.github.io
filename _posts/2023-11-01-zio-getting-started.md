@@ -6,7 +6,8 @@ date:   2023-11-01 22:22:22 +0100
 categories: computer-science
 excerpt_separator: <!--more-->
 excerpt: zio
-tags: zio zio2 scala
+tags: zio zio2 scala basic
+author: Paweł Zabczyński
 ---
 
 The article is my try to explain first concept that developer meet when start the journey with functional programming, not only ZIO and usually .

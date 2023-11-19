@@ -1,0 +1,11 @@
+Paweł Zabczyński:
+  name        : "Paweł Zabczyński"
+  bio         : "Software engineer."
+  avatar      : "/assets/images/avatar_small.jpg"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:pawel.zabczynski@protonmail.com"
+    - label: "LinkedIn"
+      icon: "fab fa-linkedin"
+      url: "https://www.linkedin.com/in/pawe%C5%82-zabczy%C5%84ski/"
