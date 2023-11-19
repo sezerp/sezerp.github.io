@@ -10,7 +10,7 @@ tags: zio zio2 scala layers zlayer, basic
 author: Paweł Zabczyński
 ---
 
-On of software development chellengest is structurizing code. In this article i would like focus on dependency injection, DI, which separate object creation and usage. It allows to substitute implementations eg. change configuration in tests or refactoring. Exists many way to do it in Scala. DI can be divided in two groups
+On of software development chellengest is structurizing code. In this article i would like focus on basics of dependency injection, DI, which separate object creation and usage. It allows to substitute implementations eg. change configuration in tests or refactoring. Exists many way to do it in Scala. DI can be divided in two groups
  - pure Scala solution like constructor based manual DI, cake pattern or monad reader
  - external libraries such as [guice](https://github.com/google/guice), [MacWire](https://github.com/softwaremill/macwire) or article subject [ZIO and ZLayers](https://zio.dev/reference/di/)
 
