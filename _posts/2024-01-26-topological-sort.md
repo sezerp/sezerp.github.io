@@ -10,9 +10,9 @@ tags: graph scala fp shorthest path directed
 author: Paweł Zabczyński
 ---
 
-In many task is important to do activities/task in particular order. Otherwise they do not make sens. Good example is whering cloth, putting on hoodie before tshert doesnt make sens. Other examples are how people learns, we starts from basic skilss such as knowing letter, numbers reading and writting and then go to more advanced subjects. Additionally, next example are compilers which must determine order in which source files must be processed. 
+In many tasks it is important to do activities in a particular order. Otherwise they do not make sense. A good example is wearing clothes — putting on a hoodie before a t-shirt doesn't make sense. Other examples are how people learn: we start from basic skills such as knowing letters, numbers, reading and writing, and then move on to more advanced subjects. Additionally, compilers must determine the order in which source files must be processed.
 
-In simple terms topological order is related to directed graphs and provide odrder in which graph must be traversed from "lower" to "grater" nodes, where greater mean required finish lower before start.
+In simple terms, topological order is related to directed graphs and provides an order in which the graph must be traversed from "lower" to "greater" nodes, where greater means it is required to finish lower nodes before starting.
 
 More mathematically, partial order is a relation `R` that satisfy for graph `G`:
 
@@ -28,9 +28,9 @@ $$
 Example:
 
 
-![image](/assets/images//graphs/topological_sort_example.PNG)
+![image](/assets/images/graphs/topological_sort_example.PNG)
 
-For graph in example exist many orders, is normal. Another important topological sort property is that it does not exist if graph contains any cycle. Then code that sorting graphs is almost identical with code from [Graphs: directeg graphs cycles]({% post_url 2024-01-05-graphs-dag-cycles %}) post.
+For the graph in the example, many valid orders exist — this is normal. Another important topological sort property is that it does not exist if the graph contains any cycle. The code that sorts graphs is almost identical to the code from the [Graphs: directed graphs cycles]({% post_url 2024-01-05-graphs-dag-cycles %}) post.
 
 
 
@@ -196,10 +196,10 @@ private def sortTailRecMoreFunctional(
   }
   ```
 
-  A summary I would like underline couple of bullet points:
-  - topological sort is usefull in any schedulers or calendars
-  - can be used to optimization in tash scheduling
-  - is useful tool in code representation in interpreters
+  To summarize, I would like to underline a couple of points:
+  - topological sort is useful in any schedulers or calendars
+  - can be used for optimization in task scheduling
+  - is a useful tool in code representation in interpreters
 
 
 [For full code check GitHub](https://github.com/sezerp/blog-code-scala/blob/master/src/main/scala/com/pawelzabczynski/graph/TopologicalSort.scala)

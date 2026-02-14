@@ -8,12 +8,12 @@ excerpt_separator: <!--more-->
 author: Paweł Zabczyński
 ---
 
-Welcome in math subject
+Welcome to the math subject
 
 {% include video id="1ksn-ol4PeSurq8lz7HSycsEgEH0ixXVE" provider="google-drive" %}
 
 
-The Einstein equations is as following
+The Einstein field equations are as follows
 
 $$R_{\mu\nu}-\frac{1}{2}g_{\mu\nu}R=\frac{8\pi G}{c^4} T_{\mu\nu}\,,$$
 

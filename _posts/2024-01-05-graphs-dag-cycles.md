@@ -1,7 +1,7 @@
 ---
 layout: single
 classes: wide
-title:  "Graphs: directeg graphs cycles"
+title:  "Graphs: directed graphs cycles"
 date:   2024-01-05 22:22:22 +0100
 categories: computer-science
 excerpt_separator: <!--more-->
@@ -11,11 +11,11 @@ author: Paweł Zabczyński
 ---
 
 
-In software engineering exists lot of useful data structures. One of use full structures are graphs. In this article I plan take a directed graph and algorithm for finding cycles.
+In software engineering there are lots of useful data structures. One of the useful structures is the graph. In this article I plan to take a directed graph and an algorithm for finding cycles.
 
 What is a cycle?
 
-Cycle is a path in which all vertices are uniqe expect first and last node.
+A cycle is a path in which all vertices are unique except the first and last node.
 
 
 Example:
@@ -25,17 +25,17 @@ Example:
 
 The cycle, path, is `C -> E -> F -> C`
 
-The directed graph that does not have a cycle is a directed acyclic graf, shorther DAG.
+A directed graph that does not have a cycle is a directed acyclic graph, or DAG for short.
 
 Example:
 
 ![Image](/assets/images/graphs/dag_002.PNG)
 
 
-Going forward, lets write some code that will check if given graph has a cycle or is a DAG
+Going forward, let's write some code that will check if a given graph has a cycle or is a DAG.
 
 
-At the beggining lets discuss a little bit how to perform this task and make some algorithm skatch.
+At the beginning, let's discuss a little bit how to perform this task and make an algorithm sketch.
 
 
 1. Start in any node
@@ -43,16 +43,16 @@ At the beggining lets discuss a little bit how to perform this task and make som
 3. Visit node descendants 
 4. When node does not have any descendants mark as black, visited
 5. When all descendants are black, visited, also mark node as visited
-6. If any descendant during traversing graph meet gray, visiting node than cycle exist
+6. If any descendant during traversing the graph meets a gray (visiting) node, then a cycle exists
 7. Repeat 1 - 6 starting for each node in graph
 
 
-Simple visualisation:
+Simple visualization:
 
 ![Image](/assets/images/graphs/directed_graph_cycle_detecting_algorithm_visualisation.PNG)
 
 
-Then lest implement it as simple recursion, DFS
+Then let's implement it as simple recursion, DFS
 
 ```scala
 
@@ -91,7 +91,7 @@ def hasCycleRec(graph: Map[String, List[String]]): Boolean = {
 ```
 
 
-However recursion has limitation in stack size lets implement algorithm in iterative manner
+However, recursion has stack size limitations, so let's implement the algorithm in an iterative manner
 
 
 ```scala
@@ -131,7 +131,7 @@ def hasCycleStackSafe(graph: Map[String, List[String]]): Boolean = {
 ```
 
 
-But I am using scala and Iam not fully satisfyed in this sollution, lets make it using tail recursion:
+But I am using Scala and I am not fully satisfied with this solution, so let's make it using tail recursion:
 
 
 ```scala
@@ -218,7 +218,7 @@ def hasCycleTailRecMoreFunctional(graph: Map[String, List[String]]): Boolean = {
   }
 ```
 
-I hope it will be usefull not only in recrutment process but also in daily job ;)
+I hope it will be useful not only in the recruitment process but also in the daily job ;)
 
 
 [For full code check GitHub](https://github.com/sezerp/blog-code-scala/blob/master/src/main/scala/com/pawelzabczynski/graph/CyclesInDirectedGraph.scala)

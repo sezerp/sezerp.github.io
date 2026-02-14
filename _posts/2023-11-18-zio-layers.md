@@ -6,23 +6,23 @@ date:   2023-11-18 22:22:22 +0100
 categories: computer-science
 excerpt_separator: <!--more-->
 excerpt: zio
-tags: zio zio2 scala layers zlayer, basic
+tags: zio zio2 scala layers zlayer basic
 author: Paweł Zabczyński
 ---
 
-On of software development chellengest is structurizing code. In this article i would like focus on basics of dependency injection, DI, which separate object creation and usage. It allows to substitute implementations eg. change configuration in tests or refactoring. Exists many way to do it in Scala. DI can be divided in two groups
+One of software development challenges is structuring code. In this article I would like to focus on the basics of dependency injection (DI), which separates object creation and usage. It allows substituting implementations, e.g. changing configuration in tests or during refactoring. There are many ways to do it in Scala. DI can be divided into two groups
  - pure Scala solution like constructor based manual DI, cake pattern or monad reader
  - external libraries such as [guice](https://github.com/google/guice), [MacWire](https://github.com/softwaremill/macwire) or article subject [ZIO and ZLayers](https://zio.dev/reference/di/)
 
 
- Then lets talk about basic concept of ZLayer and DI
+ Then let's talk about the basic concepts of ZLayer and DI
 
 #### Constructor base DI
 
-To be able to understand DI and ZLayers lets talk a litle bit about manual DI, the most basic way of douing DI. It doesn't mean it is not usefull. It has some advantages
+To be able to understand DI and ZLayers, let's talk a little bit about manual DI, the most basic way of doing DI. It doesn't mean it is not useful. It has some advantages:
 
-- not required external librarirs/frameworks
-- easy to understand for newcommers
+- does not require external libraries/frameworks
+- easy to understand for newcomers
 - much easier code navigation
 - clear starting point
 
@@ -191,7 +191,7 @@ As we can see, there's no longer a need to manually create instances. Instead, w
 
 But how does it work? From the user's perspective, we define ZLayers for each service and use the provide method, which takes all ZLayers and constructs a dependency graph, creating a single instance of each class. Importantly, this happens during compilation. Java DI frameworks such as Guice use reflection at runtime. If we miss any dependency and don't provide it, the compilation fails with information about what is missing.
 
-For eexample:
+For example:
 
 ```scala 
 program.provide(
@@ -200,7 +200,7 @@ program.provide(
       liveUserService
     )
 ```
-The compilation fail with error
+The compilation fails with an error
 
 ```shell
 ──── ZLAYER ERROR ────────────────────────────────────────────────────
@@ -216,10 +216,10 @@ The compilation fail with error
 ```
 
 
-Additioaly ZIO provide some tools that could be helpful during debugging ZLayers. Because one of disatvantages is that ZLayers and layer construction and then whole DI has been written as sca;la macros. Thats mean is not easy understand the internal code. Despite that we do not need to worry toomuch because since ZIO 1 the authors draw conclusions and make it easier to use. One of tools provided with zio is dependency graps drawers. Lets see it in actiuon
+Additionally, ZIO provides some tools that can be helpful during debugging ZLayers. One of the disadvantages is that ZLayers and layer construction, and then the whole DI, have been written as Scala macros. That means it is not easy to understand the internal code. Despite that, we do not need to worry too much because since ZIO 1 the authors have drawn conclusions and made it easier to use. One of the tools provided with ZIO is a dependency graph drawer. Let's see it in action
 
 
-Lets add `ZLayer.Debug.tree` and see the output
+Let's add `ZLayer.Debug.tree` and see the output
 ```scala
 program.provide(
       liveConfig,
@@ -239,7 +239,7 @@ Compiler output:
 [warn]     program.provide(
 ```
 
-The output prints a dependency tree. Another option is to construct and print a dependency graph and additionally construct a mermaid graph. Mermaid is a JavaScript tool for creating charts..
+The output prints a dependency tree. Another option is to construct and print a dependency graph and additionally construct a mermaid graph. Mermaid is a JavaScript tool for creating charts.
 
 ```scala
 program.provide(
@@ -264,7 +264,7 @@ Compile output:
 The output provides a link to visualize your dependencies using Mermaid.
 ![image](/assets/images/zio/zio-mermaind-dependency-graph.png)
 
-As we can see the `ZLayer.Debug.mermaid` this method additionaly construct and show graph and provide link to visualization our dependencies.
+As we can see, the `ZLayer.Debug.mermaid` method additionally constructs and shows a graph and provides a link to visualize our dependencies.
 
 
 
