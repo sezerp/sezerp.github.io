@@ -10,13 +10,12 @@ tags: zio zio2 scala basic
 author: Paweł Zabczyński
 ---
 
-The article is my try to explain first concept that developer meet when start the journey with functional programming, not only ZIO and usually .
+This article is my attempt to explain the first concept that a developer meets when starting the journey with functional programming, specifically with ZIO.
 
-The [ZIO](https://github.com/zio/zio) is a library and also a type in library. The main purpose is provide way to create maintainable software. 
-The mian future is that everything run in asynhronous simultaneously. However, in most cases not required use advanced multithreading techniques. Additionally, provide functional programming concepts. The core concept is `effect` that allow dill with side effects as with pure code.
+[ZIO](https://github.com/zio/zio) is a library and also a type within that library. Its main purpose is to provide a way to create maintainable software. The main feature is that everything runs asynchronously. However, in most cases it is not required to use advanced multithreading techniques. Additionally, it provides functional programming concepts. The core concept is the `effect`, which allows dealing with side effects as with pure code.
 
 
-`Effect` is an description of program. Thats mean during creation od `ZIO` expression will not be evaluated.
+`Effect` is a description of a program. That means during creation of a `ZIO` expression, it will not be evaluated.
 
 
 Examples
@@ -24,17 +23,17 @@ Examples
 ```scala
 import zio.ZIO
 
-val someVal: Unit = println("hello world") // will print be immeditialy
-val someEffect: ZIO[Any, Nothing, Unit] = ZIO.succeed(println("Hello World from effect")) // just construct ZIO structure, will not perform println
+val someVal: Unit = println("hello world") // will be printed immediately
+val someEffect: ZIO[Any, Nothing, Unit] = ZIO.succeed(println("Hello World from effect")) // just constructs ZIO structure, will not perform println
 ```
 
 
 ```scala
-val fut: Future[Int] = Future(10) // the future start immeditially after create instance
-val effect: ZIO[Any, Nothing, Int] = ZIO.successd(10) // create only ZIO container
+val fut: Future[Int] = Future(10) // the future starts immediately after creating the instance
+val effect: ZIO[Any, Nothing, Int] = ZIO.succeed(10) // creates only ZIO container
 ```
 
-That introduce referentaial transparency what mean we can substitute any value with expression that return the same type. As long as program does not contains any side effect is simple.
+That introduces referential transparency, which means we can substitute any value with an expression that returns the same type. As long as a program does not contain any side effects, this is straightforward.
 
 ```scala
 
@@ -43,7 +42,7 @@ val value1: Int = add(10, 3)
 val value2: Int = 10 + 3
 val value3: Int = 13
 ```
-Above example shows that all of the values are equivalent, it doesn't matter which one will be used. All of them has the same value and effect, but those expressions are pure, does not runn any side effects.
+The above example shows that all of the values are equivalent — it doesn't matter which one is used. All of them have the same value and effect, because those expressions are pure and do not run any side effects.
 
 [Side effect definition](https://en.wikipedia.org/wiki/Side_effect_(computer_science))
 > In computer science, an operation, function or expression is said to have a side effect if it modifies some state variable value(s) outside its local environment, which is to say if it has any observable effect other than its primary effect of returning a value to the invoker of the operatio
@@ -61,7 +60,7 @@ var someVariable: Int = 0;
 val value3: Unit = someVariable += 1
 ```
 
-In this example the expressions and values are not equivalents and cannot be substitute. All of them has `Unit` type. However, when they are instantioniated firs send data into system out and last set varialbe that is out of expression scope. Despite they return the same type/value as effect of evaluation are diffrent result, print and set variable. The solution are `IO`s. In zio is `ZIO` type which describe computation instead of evauating then immeditially on creation. Thats mean the construction is separated from evaluation.
+In this example the expressions and values are not equivalent and cannot be substituted. All of them have the `Unit` type. However, when they are instantiated, the first sends data to system out, and the last sets a variable that is outside the expression scope. Although they return the same type/value, the effects of evaluation are different: print and set variable. The solution is `IO`. In ZIO there is the `ZIO` type, which describes computation instead of evaluating it immediately on creation. That means the construction is separated from evaluation.
 
 
 ```scala
@@ -78,7 +77,7 @@ var someVariable = 0
 val zio3: ZIO[Any, Nothing, Unit] = ZIO.succeed(someVariable += 1)
 ```
 
-Now all of values contains only computation description. During instantionization all of them will do the same, create `ZIO` with same types without any side effects. Despite two of them have side effects they now are equivalent. But what is a difference? On first look it does not give any advanatages over normal expressions. The answer is ability to construct smaller programs by describing them using `ZIO` type and compose them somwhere else and if contains any side effect run them on demand during evcaluation not construction, as many time as required.
+Now all of the values contain only a computation description. During instantiation all of them will do the same thing: create a `ZIO` with the same types without any side effects. Even though two of them have side effects, they are now equivalent. But what is the difference? At first glance it does not give any advantages over normal expressions. The answer is the ability to construct smaller programs by describing them using the `ZIO` type and compose them somewhere else. If they contain any side effects, those are run on demand during evaluation, not construction, as many times as required.
 
 
 ```scala
@@ -93,7 +92,7 @@ object Application extends ZIOAppDefault {
   }
 }
 ```
-On console we will not see any messages because the program just create a programs, not evalute them.
+On the console we will not see any messages because the program just creates programs, it does not evaluate them.
 
 ```scala
 object Application {
@@ -103,7 +102,7 @@ object Application {
   }
 }
 ```
-When we use pure scala expressions then result will be diffrent, on console will appera messages:
+When we use pure Scala expressions, the result will be different — messages will appear on the console:
 
 ```shell
 Hello world!
@@ -111,7 +110,7 @@ Hello
 ```
 
 
-Lets try compose
+Let's try to compose
 
 ```scala
 import zio.{Scope, ZIO, ZIOAppArgs, ZIOAppDefault}
@@ -140,7 +139,7 @@ Hello World
 Hello
 ```
 
-now lets check what happend when we try do the same with plain scala:
+Now let's check what happens when we try to do the same with plain Scala:
 
 ```scala
 object Application {
@@ -155,21 +154,21 @@ object Application {
   }
 }
 ```
-The output is sligthlyu different, same as when we just create values
+The output is slightly different, the same as when we just create values
 
 ```shell
 Hello world!
 Hello
 ```
 
-This happend due to creation is not separated from evaluation and is not possible revaluate it, when expression that evaluate to value contaned side effect, then  side effect was produced on creation stage and never agian, val now contains only resulting value. Thts mean if instead of `println` will be insert int data base then will happen only once when create val. 
+This happens because creation is not separated from evaluation, and it is not possible to re-evaluate it. When an expression that evaluates to a value contained a side effect, then that side effect was produced at the creation stage and never again — the val now contains only the resulting value. That means if instead of `println` there was an insert into a database, it would happen only once when creating the val.
 
 #### Summary
 
-The effect has basic three property
+The effect has three basic properties:
 
-- describe kind of computation using type, moreover tells that posibly side effect will be performedwhen on egzecution
-- separate creation and evaluation process, imo the most important point
-- produce value of described type on success
+- describes the kind of computation using types, moreover tells that a side effect will possibly be performed on execution
+- separates creation and evaluation process — in my opinion, the most important point
+- produces a value of the described type on success
 
-Effects was designed to describe effectful operations, to be honest provides more capabilities such as async api but is different topic.
+Effects were designed to describe effectful operations. To be honest, they provide more capabilities such as an async API, but that is a different topic.
