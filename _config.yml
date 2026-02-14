@@ -1,68 +1,53 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-
 # Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-email: pawel.zabczynski@protonmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Math and software engineering
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+title: "Paweł Zabczyński | Senior Scala Consultant"
+description: "Senior Scala Consultant & Big Data Architect. Building fault-tolerant backend systems and optimizing petabyte-scale data pipelines."
+url: "https://zabczynski.dev"
+baseurl: ""
+author: "Paweł Zabczyński"
+email: "pawel.zabczynski@protonmail.com"
+lang: "en"
 
 # Build settings
 markdown: kramdown
-remote_theme: "mmistakes/minimal-mistakes@4.24.0"
-include: ["_pages"]
+highlighter: rouge
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+      css_class: highlight
+
+# Plugins
 plugins:
   - jekyll-feed
-  - jekyll-include-cache
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
-minimal_mistakes_skin    : "dark" # "default",  "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+# SEO
+twitter:
+  card: summary
+social:
+  name: Paweł Zabczyński
+  links:
+    - https://github.com/sezerp
+    - https://www.linkedin.com/in/pawe%C5%82-zabczy%C5%84ski/
 
-# Site Settings
-locale                   : "en-GB"
-title                    : "Sezerp"
-title_separator          : "-"
-name                     : "Paweł Zabczyński"
-description              : "Science & Engineering"
-url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
-masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
-# breadcrumbs            : false # true, false (default)
-words_per_minute         : 5
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+# Defaults
 defaults:
-  # _posts
   - scope:
       path: ""
-      type: posts
+      type: "posts"
     values:
-      layout: single
-      author_profile: true
-      read_time: false
-      comments: true
-      share: true
-      related: true
+      layout: post
+
+# Include/Exclude
+include: ["_pages"]
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md
+  - .idea

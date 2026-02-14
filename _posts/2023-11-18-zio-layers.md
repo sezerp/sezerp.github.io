@@ -1,6 +1,5 @@
 ---
-layout: single
-classes: wide
+layout: post
 title:  "ZIO dependency injection"
 date:   2023-11-18 22:22:22 +0100
 categories: computer-science

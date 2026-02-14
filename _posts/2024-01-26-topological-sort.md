@@ -1,6 +1,5 @@
 ---
-layout: single
-classes: wide
+layout: post
 title:  "Graphs: topological sort"
 date:   2024-01-26 22:22:22 +0100
 categories: computer-science

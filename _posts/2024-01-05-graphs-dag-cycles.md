@@ -1,6 +1,5 @@
 ---
-layout: single
-classes: wide
+layout: post
 title:  "Graphs: directed graphs cycles"
 date:   2024-01-05 22:22:22 +0100
 categories: computer-science
