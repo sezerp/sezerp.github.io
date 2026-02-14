@@ -1,6 +1,5 @@
 ---
-layout: single
-classes: wide
+layout: post
 title:  "ZIO basic concepts"
 date:   2023-11-01 22:22:22 +0100
 categories: computer-science

@@ -1,6 +1,5 @@
 ---
-layout: single
-classes: wide
+layout: post
 title:  "Welcome to math!"
 date:   2020-11-07 22:22:22 +0100
 categories: math
@@ -10,7 +9,7 @@ author: Paweł Zabczyński
 
 Welcome to the math subject
 
-{% include video id="1ksn-ol4PeSurq8lz7HSycsEgEH0ixXVE" provider="google-drive" %}
+<iframe src="https://drive.google.com/file/d/1ksn-ol4PeSurq8lz7HSycsEgEH0ixXVE/preview" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
 
 
 The Einstein field equations are as follows
