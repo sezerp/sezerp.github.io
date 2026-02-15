@@ -56,11 +56,13 @@
 
   <!-- Navigation -->
   <nav class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/50">
-    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="{{ '/' | relative_url }}" class="font-mono font-bold text-slate-50 text-lg tracking-tight hover:text-brand transition-colors">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+      <a href="{{ '/' | relative_url }}" class="font-mono font-bold text-slate-50 text-base sm:text-lg tracking-tight hover:text-brand transition-colors">
         Paweł Zabczyński
       </a>
-      <div class="flex items-center gap-8">
+
+      <!-- Desktop nav -->
+      <div class="hidden md:flex items-center gap-8">
         <a href="{{ '/' | relative_url }}#services" class="text-sm text-slate-400 hover:text-slate-50 transition-colors">Services</a>
         <a href="{{ '/' | relative_url }}#work" class="text-sm text-slate-400 hover:text-slate-50 transition-colors">Work</a>
         <a href="{{ '/' | relative_url }}#blog" class="text-sm text-slate-400 hover:text-slate-50 transition-colors">Blog</a>
@@ -68,8 +70,53 @@
           Check Availability
         </a>
       </div>
+
+      <!-- Mobile hamburger button -->
+      <button id="menu-toggle" class="md:hidden text-slate-400 hover:text-slate-50 transition-colors" aria-label="Toggle menu" aria-expanded="false">
+        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800/50 bg-slate-950/95 backdrop-blur-md">
+      <div class="px-4 py-4 flex flex-col gap-4">
+        <a href="{{ '/' | relative_url }}#services" class="nav-link text-sm text-slate-400 hover:text-slate-50 transition-colors py-2">Services</a>
+        <a href="{{ '/' | relative_url }}#work" class="nav-link text-sm text-slate-400 hover:text-slate-50 transition-colors py-2">Work</a>
+        <a href="{{ '/' | relative_url }}#blog" class="nav-link text-sm text-slate-400 hover:text-slate-50 transition-colors py-2">Blog</a>
+        <a href="mailto:{{ site.email }}?subject=Consulting%20Inquiry" class="text-sm font-medium text-slate-50 bg-cyan-600 px-4 py-2 rounded hover:bg-cyan-500 transition-colors text-center">
+          Check Availability
+        </a>
+      </div>
     </div>
   </nav>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('menu-toggle');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('menu-icon-open');
+      var iconClose = document.getElementById('menu-icon-close');
+      var links = menu.querySelectorAll('.nav-link');
+
+      toggle.addEventListener('click', function() {
+        var isOpen = !menu.classList.contains('hidden');
+        menu.classList.toggle('hidden');
+        iconOpen.classList.toggle('hidden');
+        iconClose.classList.toggle('hidden');
+        toggle.setAttribute('aria-expanded', !isOpen);
+      });
+
+      links.forEach(function(link) {
+        link.addEventListener('click', function() {
+          menu.classList.add('hidden');
+          iconOpen.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+  </script>
 
   <!-- Main Content -->
   <main>
@@ -78,7 +125,7 @@
 
   <!-- Footer -->
   <footer class="border-t border-slate-800/50 mt-32">
-    <div class="max-w-5xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 flex flex-col md:flex-row items-center justify-between gap-6">
       <p class="text-sm text-slate-500">&copy; {{ 'now' | date: '%Y' }} Paweł Zabczyński. All rights reserved.</p>
       <div class="flex items-center gap-6">
         <a href="https://github.com/sezerp" class="text-slate-500 hover:text-slate-300 transition-colors" aria-label="GitHub">
